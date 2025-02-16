@@ -1,0 +1,39 @@
+Using the following project files (with multiple relevant code snippets) and their AST mappings, generate a JSON object with a key 'instructions' that contains a JSON array of instructions to update the code according to the query.
+
+Project Files (top relevant chunks for each file):
+{
+  "./test/python_test.py": {
+    "relevant_chunks": [
+      "# python_test.py def become_radiology_technician(): steps = [ \"Earn a high school diploma.\", \"Take science and math courses to prepare for college.\", \"Obtain an associate degree from an accredited radiologic technology program.\", \"Pass the ARRT certification exam.\", \"Apply for Michigan state licensure through the Michigan Department of Licensing and Regulatory Affairs (LARA).\", \"Consider pursuing additional certifications or specializations.\" ] return steps def main(): print(\"Steps to become a radiology technician:\") for step in become_radiology_technician(): print(step) if __name__ == \"__main__\": main()",
+      "# python_test.py def become_radiology_technician(): \"\"\" Provides the steps required to become a radiology technician. Returns: list: A list of steps to follow to become a radiology technician. \"\"\" steps = [ \"Earn a high school diploma.\", \"Take science and math courses to prepare for college.\", \"Obtain an associate degree from an accredited radiologic technology program.\", \"Pass the ARRT certification exam.\", \"Apply for Michigan state licensure through the Michigan Department of Licensing and Regulatory Affairs (LARA).\", \"Consider pursuing additional certifications or specializations.\" ] return steps def main(): \"\"\" Main function that prints the steps to become a radiology technician. \"\"\" print(\"Steps to become a radiology technician:\") for step in become_radiology_technician(): print(step) if __name__ == \"__main__\": main()"
+    ]
+  }
+}
+
+AST Map (full file AST):
+{
+  "./test/python_test.py": {
+    "filename": "./test/python_test.py",
+    "ast_summary": [
+      {
+        "type": "function",
+        "name": "become_radiology_technician"
+      },
+      {
+        "type": "function",
+        "name": "main"
+      }
+    ]
+  }
+}
+
+Query: Add doc strings to all the functions explaining what they do.
+
+For each instruction, provide complete, fully formed code segments so that applying the instruction to the provided file content yields a fully functional updated version of the code. Do not send partial updates; every code snippet returned must be complete and self-contained for its context.
+
+Each instruction should follow one of these formats:
+  - { "type": "update", "filename": "<file to update>", "find": "<exact complete code to be replaced>", "replace": "<complete new code snippet>", "write": "", "delete": "" }
+  - { "type": "insert", "filename": "<file to update>", "find": "<exact complete code location marker>", "write": "<complete new code to insert>", "replace": "", "delete": "" }
+  - { "type": "delete", "filename": "<file to update>", "delete": "<exact complete code snippet to remove>", "find": "", "replace": "", "write": "" }
+
+Return ONLY the JSON object with no additional text or explanation. Make sure when replacing or deleting you provide the full code to be replaced, and the full code to replace with. You must be comprehensive with your response.
