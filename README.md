@@ -107,7 +107,7 @@ aidien = Aidien(
     database_url="your_database_url",
     embed_model_name="your_embed_model_name",
     openai_api_key="your_openai_api_key",
-    openai_model="gpt-4"
+    openai_model="gpt-4o"
 )
 
 # Embed a directory
